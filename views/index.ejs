@@ -22,7 +22,7 @@
                             <h2 class="post-date"><%= post.date.toLocaleString() %></h2>
                         </div>
                         <h2 class="post-title"><%= post.title %></h2>
-                        <p class="post-text"><%= post.text %></p>
+                        <p class="post-text"><%- post.text %></p>
                         <div class="post-bottom">
                             <img class="post-int post-star" src="svg/star.svg">
                             <h1 class="post-stars">21</h1>
@@ -32,23 +32,6 @@
                     </div>
                 <% }) %>
                 <!-- posts -->
-                <div class="post">
-                    <div class="post-top">
-                        <div class="post-user">
-                            <img src="/images/icon.png" class="post-icon">
-                            <h1 class="post-username">@mierbear</h1>
-                        </div>
-                        <h2 class="post-date">26-6-06 06:26:06 PM</h2>
-                    </div>
-                    <h2 class="post-title">welcome to mierblog</h2>
-                    <p class="post-text">hi welcome!!!<br>feel free to post whatever :3</p>
-                    <div class="post-bottom">
-                        <img class="post-int post-star" src="svg/star.svg">
-                        <h1 class="post-stars">21</h1>
-                        <img class="post-int post-comment" src="svg/comment.svg">
-                        <h1 class="post-comments">0</h1>
-                    </div>
-                </div>
                 <div class="post">
                     <div class="post-top">
                         <div class="post-user">

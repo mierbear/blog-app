@@ -14,10 +14,10 @@ app.get("/", (req, res) => {
 
 app.post("/post", (req, res) => {
     const postTitle = req.body["title"];
-    const postText = req.body["text"];
+    const postText = req.body["text"].replaceAll(/\n/g, `<br>`);
     const postDate = new Date().toLocaleString().replaceAll(`/`, `-`);
     if (postTitle !== `` && postText !== ``) {
-    posts.push({title: postTitle, text: postText, date: postDate});
+    posts.unshift({title: postTitle, text: postText, date: postDate});
     }
 
     res.redirect(`/`);
