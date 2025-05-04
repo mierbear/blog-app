@@ -4,7 +4,7 @@
     align-items: center;
     /* padding: 5%; */
     box-sizing: border-box;
-    font-size: 40vh;
-    width: 100%;
+    font-size: 20vw;
+    width: 100vw;
     pointer-events: none;
 }

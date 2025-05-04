@@ -5,7 +5,7 @@
     <%- include("partials/header.ejs") %>
     <div class="center">
         <div class="greeting">
-            <h1> <%= text %> </h1>
+            <h1> hello world! </h1>
             <h3 class="clock-text">its currently <span class="clock"></span> !!</h3>
         </div>
         <div class="content">
@@ -16,42 +16,54 @@
                     <div class="post">
                         <div class="post-top">
                             <div class="post-user">
-                                <img src="/images/icon.png" class="post-icon">
-                                <h1 class="post-username">@mierbear</h1>
+                                <img src=<%= post.name === `mierbear` ? `/images/icon.png` : `/svg/user.svg` %> class="post-icon">
+                                <h1 class="post-username">@<%= post.name %></h1>
                             </div>
                             <h2 class="post-date"><%= post.date.toLocaleString() %></h2>
                         </div>
                         <h2 class="post-title"><%= post.title %></h2>
                         <p class="post-text"><%- post.text %></p>
                         <div class="post-bottom">
-                            <img class="post-int post-star" src="svg/star.svg">
-                            <h1 class="post-stars">21</h1>
-                            <img class="post-int post-comment" src="svg/comment.svg">
-                            <h1 class="post-comments">0</h1>
+                            <div class="post-bottom-part">
+                                <img class="post-int post-star" src="svg/star.svg">
+                                <h1 class="post-stars"><%= post.stars %></h1>
+                                <img class="post-int post-comment" src="svg/comment.svg">
+                                <h1 class="post-comments">0</h1>
+                            </div>
+                            <div class="post-bottom-part">
+                                <img class="post-int post-edit" src="svg/edit.svg">
+                                <button onclick="deletePost('<%= post.id %>')" class="post-int post-trash">
+                                    <img src="svg/trash.svg" alt="Delete">
+                                </button>
+                            </div>
                         </div>
                     </div>
                 <% }) %>
-                <!-- posts -->
+                <!-- mier post -->
                 <div class="post">
                     <div class="post-top">
                         <div class="post-user">
                             <img src="/images/icon.png" class="post-icon">
                             <h1 class="post-username">@mierbear</h1>
                         </div>
-                        <h2 class="post-date">26-6-06 06:26:06 PM</h2>
+                        <h2 class="post-date">11-10-2002, 06:26:06 PM</h2>
                     </div>
                     <h2 class="post-title">welcome to mierblog</h2>
-                    <p class="post-text">hi welcome!!!<br>feel free to post whatever :3</p>
+                    <p class="post-text">hi welcome!!!<br>feel free to post whatever :3<br>im still thinking about how to implement the like functionality and im struggling w it a lot lol</p>
                     <div class="post-bottom">
+                        <div class="post-bottom-part">
                         <img class="post-int post-star" src="svg/star.svg">
                         <h1 class="post-stars">21</h1>
                         <img class="post-int post-comment" src="svg/comment.svg">
                         <h1 class="post-comments">0</h1>
+                        </div>
+                        <div class="post-bottom-part"></div>
                     </div>
                 </div>
             </div>
             <div class="right">
                 <form class="form" action="/post" method="POST">
+                    <input class="name" type="text" name="name" placeholder="name">
                     <input class="title" type="text" name="title" placeholder="title">
                     <textarea class="text" type="text" name="text" placeholder="..."></textarea>
                     <input class="post-input" type="submit" value="post!">

@@ -65,6 +65,7 @@ body {
     /* min-height:; */
     width: 90%;
     padding: 2vh 3.6vh;
+    padding-bottom: 3.6vh;
     border: 1px solid rgb(44, 71, 96);
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
@@ -104,13 +105,23 @@ body {
 
 .post-bottom {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
     margin-top: auto;
+}
+
+.post-bottom-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
 .post-int {
+    display: flex;
+    flex-direction: row;
     height: 3.5em;
     fill: bisque;
     transition: all .2s ease;
@@ -120,15 +131,16 @@ body {
     cursor: pointer;
 }
 
-.post-star:hover,
-.post-comment:hover {
+.post-int:hover {
     transform: scale(1.2);
 }
 
 .form {
     background-color: rgba(255, 255, 255, 0.455);
-    height: 25vh;
-    width: 100%;
+    min-height: 25vh;
+    width: 20vw;
+    max-width: 20vw;
+    max-height: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,14 +151,19 @@ body {
 }
 
 .title,
+.name,
 .text,
 .post-input {
     margin-bottom: .8vh;
 }
 
-.title {
+.title,
+.name {
     width: 100%;
     height: 3vh;
+}
+
+.name {
     margin-top: .8vh;
 }
 
