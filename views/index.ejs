@@ -1,1 +1,83 @@
-<h1> <%= text %> </h1>
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="center">
+        <div class="greeting">
+            <h1> <%= text %> </h1>
+            <h3 class="clock-text">its currently <span class="clock"></span> !!</h3>
+        </div>
+        <div class="content">
+            <div class="container">
+            <div class="left">
+                <!-- user posts -->
+                <% posts.forEach((post) => { %>
+                    <div class="post">
+                        <div class="post-top">
+                            <div class="post-user">
+                                <img src="/images/icon.png" class="post-icon">
+                                <h1 class="post-username">@mierbear</h1>
+                            </div>
+                            <h2 class="post-date"><%= post.date.toLocaleString() %></h2>
+                        </div>
+                        <h2 class="post-title"><%= post.title %></h2>
+                        <p class="post-text"><%= post.text %></p>
+                        <div class="post-bottom">
+                            <img class="post-int post-star" src="svg/star.svg">
+                            <h1 class="post-stars">21</h1>
+                            <img class="post-int post-comment" src="svg/comment.svg">
+                            <h1 class="post-comments">0</h1>
+                        </div>
+                    </div>
+                <% }) %>
+                <!-- posts -->
+                <div class="post">
+                    <div class="post-top">
+                        <div class="post-user">
+                            <img src="/images/icon.png" class="post-icon">
+                            <h1 class="post-username">@mierbear</h1>
+                        </div>
+                        <h2 class="post-date">26-6-06 06:26:06 PM</h2>
+                    </div>
+                    <h2 class="post-title">welcome to mierblog</h2>
+                    <p class="post-text">hi welcome!!!<br>feel free to post whatever :3</p>
+                    <div class="post-bottom">
+                        <img class="post-int post-star" src="svg/star.svg">
+                        <h1 class="post-stars">21</h1>
+                        <img class="post-int post-comment" src="svg/comment.svg">
+                        <h1 class="post-comments">0</h1>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="post-top">
+                        <div class="post-user">
+                            <img src="/images/icon.png" class="post-icon">
+                            <h1 class="post-username">@mierbear</h1>
+                        </div>
+                        <h2 class="post-date">26-6-06 06:26:06 PM</h2>
+                    </div>
+                    <h2 class="post-title">welcome to mierblog</h2>
+                    <p class="post-text">hi welcome!!!<br>feel free to post whatever :3</p>
+                    <div class="post-bottom">
+                        <img class="post-int post-star" src="svg/star.svg">
+                        <h1 class="post-stars">21</h1>
+                        <img class="post-int post-comment" src="svg/comment.svg">
+                        <h1 class="post-comments">0</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <form class="form" action="/post" method="POST">
+                    <input class="title" type="text" name="title" placeholder="title">
+                    <textarea class="text" type="text" name="text" placeholder="..."></textarea>
+                    <input class="post-input" type="submit" value="post!">
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>
+    <script src="js/index.js"></script>
+</body>
+</html>
